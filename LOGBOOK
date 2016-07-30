@@ -1,0 +1,52 @@
+git clone https://github.com/supermarin/YosemiteSanFranciscoFont.git
+sudo mv /home/u/Downloads/YosemiteSanFranciscoFont/*.ttf /usr/share/fonts/
+gedit ./etc/i3/config
+cp /etc/i3/config ~/.config/i3/config
+sudo apt-get install lxappearance
+
+
+
+# diverse manuelle Änderungen in den gtk-files
+# machen Teile von Linux greifen auf 2.0 bzw. 3.0 zu
+# -> diese beiden Dateien vielleicht manuell
+# wo sichern /github
+
+# gedit gtkrc-2.0
+# ls -alh
+# gedit .gtkrc-2.0
+# ls
+# pwd
+# cd .config/gtk-3.0
+# ls
+# gedit settings.ini
+
+
+
+#diverse configs für ein dunkles Theme
+
+wget http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_15.10/Release.key
+sudo apt-key add - < Release.key
+  wget http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key
+  sudo apt-key add - < Release.key
+  sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /' >> /etc/apt/sources.list.d/arc-theme.list"
+  sudo apt-get update
+  sudo apt-get install arc-theme
+  sudo add-apt-repository ppa:moka/daily
+  sudo apt-get update
+  sudo apt-get install moka-icon-theme
+
+# rofi - Ersatz für dmenu
+sudo apt-get install rofi
+# starten dann mit "rofi -show run"; dies in .config/i3/config bei mod+d eintragen
+
+#compton - "compositor, damit i3 auch transparente windows kann"
+sudo apt-get install compton
+# dann unten im config-file "exec_always compton" oder "exec compton"
+
+## lock screen i3-lock  mit mod-shiftx
+sudo apt-get install i3lock
+# weiteres auf
+# https://www.reddit.com/r/unixporn/comments/3358vu/i3lock_unixpornworthy_lock_screen/
+
+## i3blocks
+sudo apt-get install i3blocks
